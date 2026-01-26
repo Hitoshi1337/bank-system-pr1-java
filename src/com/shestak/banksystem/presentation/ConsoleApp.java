@@ -27,7 +27,7 @@ public class ConsoleApp {
   }
 
   public void start() {
-    // load data on start
+
     try { uow.load(); } catch (Exception ignored) {}
 
     while (true) {
@@ -197,7 +197,7 @@ public class ConsoleApp {
     }
   }
 
-  // ADMIN
+
   private void adminUsersMenu() {
     while (true) {
       System.out.println("\n--- ADMIN: USERS ---");

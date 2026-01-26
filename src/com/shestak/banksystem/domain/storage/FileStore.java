@@ -33,7 +33,7 @@ public class FileStore {
       Object obj = in.readObject();
       return type.cast(obj);
     } catch (Exception e) {
-      // если файл битый — удаляем и продолжаем
+
       try { Files.deleteIfExists(file); } catch (IOException ignored) {}
       throw new RuntimeException("Load failed: " + name + " (file removed)", e);
     }
