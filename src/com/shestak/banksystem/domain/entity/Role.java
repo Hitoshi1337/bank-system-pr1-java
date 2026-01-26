@@ -1,5 +1,6 @@
 package com.shestak.banksystem.domain.entity;
 
-public interface Entity {
-    Long getId();
+public enum Role {
+    ADMIN,
+    USER
 }

@@ -1,33 +1,12 @@
 package com.shestak.banksystem.domain.entity;
 
-import java.util.Objects;
+import java.io.Serializable;
 
-public abstract class BaseEntity<ID> implements Entity<ID> {
-  private ID id;
+public abstract class BaseEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-  @Override
-  public ID getId() {
-    return id;
-  }
+    protected Long id;
 
-  @Override
-  public void setId(ID id) {
-    if (id == null) {
-      throw new IllegalArgumentException("id cannot be null");
-    }
-    this.id = id;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    BaseEntity<?> that = (BaseEntity<?>) o;
-    return Objects.equals(id, that.id);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id);
-  }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 }

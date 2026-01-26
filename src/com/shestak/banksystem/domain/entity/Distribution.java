@@ -1,24 +1,20 @@
 package com.shestak.banksystem.domain.entity;
 
-import com.shestak.banksystem.domain.util.Validate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Distribution extends BaseEntity<Long> {
-  private Long recipientId;
-  private String status;
+public class Distribution extends BaseEntity implements Entity {
+    private RecipientOrg recipientOrg;
+    private final List<DonationItem> items = new ArrayList<>();
 
-  public Long getRecipientId() {
-    return recipientId;
-  }
+    public Distribution() {}
 
-  public void setRecipientId(Long recipientId) {
-    this.recipientId = Validate.notNull(recipientId, "recipientId");
-  }
+    public Distribution(RecipientOrg recipientOrg) { this.recipientOrg = recipientOrg; }
 
-  public String getStatus() {
-    return status;
-  }
+    public RecipientOrg getRecipientOrg() { return recipientOrg; }
+    public void setRecipientOrg(RecipientOrg recipientOrg) { this.recipientOrg = recipientOrg; }
 
-  public void setStatus(String status) {
-    this.status = Validate.notBlank(status, "status");
-  }
+    public List<DonationItem> getItems() { return items; }
+
+    public void addItem(DonationItem item) { items.add(item); }
 }

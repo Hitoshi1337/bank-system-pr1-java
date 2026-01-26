@@ -1,33 +1,19 @@
 package com.shestak.banksystem.domain.entity;
 
-import com.shestak.banksystem.domain.util.Validate;
+public class DonationItem extends BaseEntity implements Entity {
+    private Product product;
+    private int quantity;
 
-public class DonationItem extends BaseEntity<Long> {
-  private Long donationId;
-  private Long productId;
-  private int quantity;
+    public DonationItem() {}
 
-  public Long getDonationId() {
-    return donationId;
-  }
+    public DonationItem(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
 
-  public void setDonationId(Long donationId) {
-    this.donationId = Validate.notNull(donationId, "donationId");
-  }
+    public Product getProduct() { return product; }
+    public void setProduct(Product product) { this.product = product; }
 
-  public Long getProductId() {
-    return productId;
-  }
-
-  public void setProductId(Long productId) {
-    this.productId = Validate.notNull(productId, "productId");
-  }
-
-  public int getQuantity() {
-    return quantity;
-  }
-
-  public void setQuantity(int quantity) {
-    this.quantity = Validate.positive(quantity, "quantity");
-  }
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 }
